@@ -11,6 +11,7 @@ public class TicTacToeServer implements TicTacToeConstants {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		new TicTacToeServer();
 	}
 
 	public TicTacToeServer(){
