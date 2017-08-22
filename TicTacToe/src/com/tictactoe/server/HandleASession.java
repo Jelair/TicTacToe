@@ -37,10 +37,10 @@ public class HandleASession implements Runnable, TicTacToeConstants {
 		
 		try {
 			//Create data input and output streams
-			DataInputStream formPlayer1 = new DataInputStream(player1.getInputStream());
-			DataOutputStream toPlayer1 = new DataOutputStream(player1.getOutputStream());
-			DataInputStream formPlayer2 = new DataInputStream(player2.getInputStream());
-			DataOutputStream toPlayer2 = new DataOutputStream(player2.getOutputStream());
+			fromPlayer1 = new DataInputStream(player1.getInputStream());
+			toPlayer1 = new DataOutputStream(player1.getOutputStream());
+			fromPlayer2 = new DataInputStream(player2.getInputStream());
+			toPlayer2 = new DataOutputStream(player2.getOutputStream());
 			
 			//Write anything to notify player 1 to start
 			//This is just to let player1 know to start

@@ -97,6 +97,9 @@ public class TicTacToeClient extends JApplet implements Runnable, TicTacToeConst
 			e.printStackTrace();
 		}
 		
+		//Control the game on a separate thread
+		Thread thread = new Thread(this);
+		thread.start();
 	}
 	
 	@Override
@@ -130,13 +133,17 @@ public class TicTacToeClient extends JApplet implements Runnable, TicTacToeConst
 			//Continue to play
 			while(continueToPlay){
 				if(player == PLAYER1){
-					
+					waitForPlayerAction(); //Wait for player 1 to move
+					sendMove(); //Send the move to the server
+					receiveInfoFromServer(); //Receive info from the server
 				}else if(player == PLAYER2){
-					
+					receiveInfoFromServer(); //Receive info from the server
+					waitForPlayerAction(); //Wait for player 2 to move
+					sendMove(); //Send the player2's move to the server
 				}
 			}
 			
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

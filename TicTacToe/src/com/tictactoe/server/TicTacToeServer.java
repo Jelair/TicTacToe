@@ -47,9 +47,10 @@ public class TicTacToeServer implements TicTacToeConstants {
 				System.out.println(new Date() + ": Start a thread for session " + sessionNo);
 				
 				//Create a new thread for this session of two players
-				
+				HandleASession task = new HandleASession(player1, player2);
 				
 				//Start the new thread
+				new Thread(task).start();
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
